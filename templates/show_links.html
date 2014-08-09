@@ -16,7 +16,7 @@
   </thead>
   <tbody>
   {% for link in links %}
-    <tr><td>{{ link.link|safe }}</td>
+    <tr><td><a href="{{ link.link|safe }}" target="_blank">{{ link.link|safe }}</a></td>
     <td>{{ link.submitter }}</td></tr>
   {% else %}
     <tr><em>Unbelievable.  No links here so far</tr>
