@@ -1,19 +1,26 @@
 {% extends "layout.html" %}
 {% block body %}
-  <form action="{{ url_for('add_link') }}" method=post class=add-link>
-    <dl>
-      <dt>Link:
-      <dd><input type=text size=50 name=link>
-      <dt>Your Name:
-      <dd><input type=text size=30 name=submitter></textarea>
-      <dd><input type=submit value=Share>
-    </dl>
+  <form action="{{ url_for('add_link') }}" method=post class="form-inline">
+    <div class="form-group">
+      <input type="url" name="link" class="form-control" placeholder="URL">
+      <input type="text" name="submitter" class="form-control" placeholder="Your Name">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
   </form>
-  <ul class=links>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Submitter</th>
+    </tr>
+  </thead>
+  <tbody>
   {% for link in links %}
-    <li><h2>{{ link.link|safe }}</h2>{{ link.submitter }}
+    <tr><td>{{ link.link|safe }}</td>
+    <td>{{ link.submitter }}</td></tr>
   {% else %}
-    <li><em>Unbelievable.  No links here so far</em>
+    <tr><em>Unbelievable.  No links here so far</tr>
   {% endfor %}
-  </ul>
+  </tbody>
+  </table>
 {% endblock %}
