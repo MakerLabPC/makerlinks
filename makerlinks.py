@@ -10,6 +10,7 @@ app.config.from_object(__name__)
 app.config.update(dict(
 	DATABASE = os.path.join(app.root_path, 'makerlinks-dev.db'),
 	DEBUG = True,
+	APP_NAME = "MakerLinks",
 	SECRET_KEY = 'development key',
 	USERNAME = 'admin',
 	PASSWORD = 'default'
